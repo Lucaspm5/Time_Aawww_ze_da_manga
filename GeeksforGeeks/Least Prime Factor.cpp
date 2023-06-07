@@ -11,7 +11,29 @@ class Solution {
             // percorro o vetor validar_primo[i] se for = a 0, significa que ainda n foi atribuido nd, se n adiciona i 
             if (validar_primo[i] == 0) {
                 validar_primo[i] = i;
-                // aqui determino j como o multiplo de i, e percorro ele apenas 
+                // aqui determino j como o multiplo de i, o que isso significa ? significa que se o j (multiplo de i) foi menor que o tamanho
+                // isso garante que o multiplo pegue o indice primo mais proximo, mas como assim ?
+                /*
+                    Se a entrada por exemplo fosse n = 3
+                    validar_primo[0] = 0
+                    validar_primo[1] = 1
+                    validar_primo[2] = 2
+                    2*2 >= 3 ? sim
+                    entao o laço do for não executa
+                    validar_primo[3] = 3
+                    validar_primo[] = 1, 2, 3
+                */ 
+                /*
+                    se o n = 4
+                    validar[0] = 0;
+                    validar[1] = 1;
+                    validar[2] = 2;
+                    2 * 2 = 4 ? sim, entao executa o 2 for
+                    validar[4] == 0 ? sim o indice ainda n foi preenchido
+                    validar[4] == 2, 2 é o indice da execução, isso significa que o primo mais proximo é 2
+                    validar[3] = 3, lembre-se que o validar tem n + 1 posições o que inclue o zero
+                    validar[] = 0,1,2,3,2
+                */
                 for (int j = i * i; j <= n; j += i) {
                     if (validar_primo[j] == 0) {
                         validar_primo[j] = i;
